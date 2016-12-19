@@ -10,8 +10,10 @@ def load_files(path):
 
 
 def dump_files(path, list_):
-    with open(path, 'w') as f:
+    with open(path, 'a') as f:
         for i in list_:
+            if isinstance(i, unicode):
+                i = i.encode('utf-8')
             f.write(i + '\n')
 
 
